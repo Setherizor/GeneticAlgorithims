@@ -1,0 +1,35 @@
+<DOCTYPE! HTML>
+    <html>
+
+    <head>
+        <title>Color Algorithim</title>
+    </head>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 90%;
+            padding: 0;
+            margin: 0;
+            top: 20px;
+        }
+
+        div {
+            float: right;
+        }
+    </style>
+
+    <button onclick="doubleGen('M');" style="height: 20px; width: 24%;">Run Generations</button>
+    <button onclick="showColor();" style="height: 20px; width: 24%">Display Color</button>
+    <button onclick="reset('C');" style="height: 20px; width: 24%;">Reset Grid copy</button>
+    <button onclick="reset('M');" style="height: 20px; width: 24%;">Reset Grid mutate</button>
+
+    <body id="body">
+    </body>
+
+    <script src="colors.js"></script>
+    <script src="index.js"></script>
+    <script src="ga.js"></script>
+
+    </html>
