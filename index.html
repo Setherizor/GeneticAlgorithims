@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Genetic Playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="Anchor" class="container"></div>
+    <script>
+        var anchor = document.getElementById("Anchor");
+        var options = [
+            "strings",
+            "colors",
+            "framework"
+        ];
+
+        for (var i = 0; i < options.length; i++) {
+            var currOption = options[i];
+            var curr = document.createElement("div");
+            curr.innerHTML = "<h1><a href=./" + currOption + "/" + currOption + ".html" + ">" + "<button class='btn draw-border'>" + currOption + "</button></a></h1>";
+            curr.className = "child";
+            if (i == 0) {
+                curr.style.backgroundColor = "#B388EB";
+            } else if (i == 1) {
+                curr.style.backgroundColor = "#8093F1";
+            } else if (i == 2) {
+                curr.style.backgroundColor = "#72DDF7";
+            }
+
+            anchor.appendChild(curr);
+        }
+    </script>
+</body>
+
+</html>
