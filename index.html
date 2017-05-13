@@ -22,7 +22,7 @@
         for (var i = 0; i < options.length; i++) {
             var currOption = options[i];
             var curr = document.createElement("div");
-            curr.innerHTML = "<h1><a href=./" + currOption + "/" + currOption + ".html" + ">" + "<button class='btn draw-border'>" + currOption + "</button></a></h1>";
+            curr.innerHTML = "<h1><a id=" + currOption + " href=./" + currOption + "/" + currOption + ".html" + ">" + "<button class='btn draw-border'>" + currOption + "</button></a></h1>";
             curr.className = "child";
             if (i == 0) {
                 curr.style.backgroundColor = "#B388EB";
