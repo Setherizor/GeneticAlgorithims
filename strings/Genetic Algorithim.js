@@ -77,7 +77,7 @@ var evolve = function () {
     while (getFitness(fittest) !== TARGET.length) {
         numGens++;
         // Output for he number of generations
-        document.getElementById("generationanchor").innerHTML = "<p>Generations: " + numGens + "</p>";
+        document.getElementById("generationanchor").innerHTML = "<p>Total Generations: " + numGens + "</p>";
 
         var pool = getGenePool(fittest);
         var pool2 = [];
