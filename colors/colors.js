@@ -21,5 +21,5 @@ var truelyRandomColor = function () {
     for (var i = 0; i < 3; i++) {
         genome[i] = Math.random() * 256 | 0;
     }
-    return genome;//genome.join(",");;
+    return genome; //genome.join(",");;
 }

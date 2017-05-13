@@ -1,9 +1,14 @@
 var TARGET = [119, 190, 119]
-var INCREMENT = prompt("Increment?", 10);
+var INCREMENT = 5;
 var GENE_POOL = (100 / INCREMENT) * (100 / INCREMENT);
 var MUT_PROB = 100;
 var GEN_SKIP = 1;
 var GEN = 0;     
+
+var prompter = function() {
+     INCREMENT = prompt("Increment?", 5);
+     reset('M');
+}
 
 var generateGenome = function () {
     var prettyColor = true;
