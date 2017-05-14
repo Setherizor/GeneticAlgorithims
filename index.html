@@ -22,7 +22,8 @@
         for (var i = 0; i < options.length; i++) {
             var currOption = options[i];
             var curr = document.createElement("div");
-            curr.innerHTML = "<h1><a id=" + currOption + " href=./" + currOption + "/" + currOption + ".html" + ">" + "<button class='btn draw-border'>" + currOption + "</button></a></h1>";
+            curr.innerHTML = "<h1><a id=" + currOption + " href=./" + currOption + "/" + currOption + ".html" + ">" +
+                "<button class='btn draw-border'>" + currOption + "</button></a></h1>";
             curr.className = "child";
             if (i == 0) {
                 curr.style.backgroundColor = "#B388EB";
@@ -39,7 +40,8 @@
 
 <script>
     var home = document.createElement("a");
-    home.innerHTML = "<a href='https://setherizor.github.io/GeneticAlgorithims/'><img style='width: 60px' src='home.png'><a>";
+    home.innerHTML =
+        "<a href='https://setherizor.github.io/GeneticAlgorithims/'><img style='width: 60px' src='home.png'><a>";
     home.style = "position: absolute; top: 0; right: 5px;";
 
     document.body.appendChild(home);
