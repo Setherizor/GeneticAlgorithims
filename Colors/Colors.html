@@ -1,0 +1,47 @@
+<DOCTYPE! HTML>
+<html>
+    <head>
+        <title>Color Algorithim</title>
+    </head>
+
+    <style>
+        html,
+        body {
+            height: 97.63%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            top: 20px;
+        }
+
+        div {
+            float: right;
+        }
+
+        button {
+            color: white;
+            background-color: #8093F1;
+            height: 6%;
+            width: 18.9%;
+            padding: 0 0 0 0;
+            margin: 0;
+            border: 0;
+        }
+    </style>
+
+    <button onclick="doubleGen('M');">Run Generations</button>
+    <button onclick="showColor();">Display Color</button>
+    <button onclick="reset('C');">Reset Grid (Same)</button>
+    <button onclick="reset('M');">Reset Grid (Unique)</button>
+    <button onclick="prompter();">Change Increment</button>
+
+    <body id="body">
+    </body>
+
+    <script src="colors.js"></script>
+    <script src="index.js"></script>
+    <script src="ga.js"></script>
+
+    <script src="../homeButton.js"></script>
+
+    </html>

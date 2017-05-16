@@ -1,0 +1,72 @@
+<DOCTYPE! HTML>
+    <html>
+
+    <head>
+        <title>String Algorithim</title>
+    </head>
+    <style>
+        html,
+        body {
+            font: 700 1.2rem 'Roboto Slab', sans-serif;
+            background-color: #72DDF7;
+            margin: 1%;
+        }
+
+        input {
+            width: 5%;
+            min-width: 20px;
+        }
+    </style>
+
+    <body>
+        <p>Genetic Algorithim for String Finding:</p>
+
+        <p>
+            Target:
+            <input style="width: 100% !important; max-width: 500px;" type="text" name="name" id="TARGET" value="Methinks it be like a Weasel"
+            />
+        </p>
+        <p>
+            Gene Pool:
+            <input type="number" name="name" id="genePool" value="50" />
+        </p>
+        <p>
+            Mutation Probability:
+            <input type="number" name="name" id="mutationProbability" value="100" />
+        </p>
+        <p>
+            Shown Generation Fittest:
+            <input type="number" name="name" id="shownGen" value="1" />
+        </p>
+
+        <button onclick="getInput();">Evolve</button>
+        <dir id="FINALLY"></dir>
+
+        <!-- Anchors for JS -->
+        <dir id="TARGET"></dir>
+        <dir id="infoanchor"></dir>
+        <dir id="generationanchor">
+            <p>Result: </p>
+        </dir>
+        <dir id="fittesteach">
+            <p></p>
+        </dir>
+    </body>
+
+    <script>
+        // Make target "" to allow custom values
+        var getInput = function () {
+            TARGET = document.getElementById("TARGET").value;
+            MUT_PROB = document.getElementById("genePool").value;
+            GENE_POOL = document.getElementById("mutationProbability").value;
+            SHOWN_GEN = document.getElementById("shownGen").value;
+
+            document.getElementById('FINALLY').innerHTML = '<p>Result: "' + evolve() + '"</p>';
+        }
+    </script>
+
+    <script src="Genetic Algorithim.js"></script>
+
+    <script src="../homeButton.js"></script>
+
+    </html>
