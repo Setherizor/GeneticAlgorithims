@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+Here is the link to the color scheme I choose
+https://coolors.co/fdc5f5-f7aef8-b388eb-8093f1-72ddf7
+-->
 
 <head>
     <meta charset="UTF-8">
@@ -14,15 +18,17 @@
     <script>
         var anchor = document.getElementById("Anchor");
         var options = [
-            "strings",
-            "colors",
-            "framework"
+            "Strings",
+            "Colors",
+            "Framework",
+            "Home"
         ];
 
         for (var i = 0; i < options.length; i++) {
             var currOption = options[i];
             var curr = document.createElement("div");
-            curr.innerHTML = "<h1><a id=" + currOption + " href=./" + currOption + "/" + currOption + ".html" + ">" +
+            curr.innerHTML = "<h1><a id=" + currOption +
+                " href=./" + currOption + "/" + currOption + ".html" + ">" +
                 "<button class='btn draw-border'>" + currOption + "</button></a></h1>";
             curr.className = "child";
             if (i == 0) {
@@ -31,6 +37,8 @@
                 curr.style.backgroundColor = "#8093F1";
             } else if (i == 2) {
                 curr.style.backgroundColor = "#72DDF7";
+            } else if (i == 3) {
+                curr.style.backgroundColor = "#FDC5F5";
             }
 
             anchor.appendChild(curr);
@@ -38,14 +46,7 @@
     </script>
 </body>
 
-<script>
-    var home = document.createElement("a");
-    home.innerHTML =
-        "<a href='https://setherizor.github.io/GeneticAlgorithims/'><img style='width: 60px' src='home.png'><a>";
-    home.style = "position: absolute; top: 0; right: 5px;";
-
-    document.body.appendChild(home);
-</script>
-
-
+<!-- Uncomment for home button on the main page.
+<script src="homeButton.js"></script>
+-->
 </html>
