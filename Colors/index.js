@@ -1,7 +1,14 @@
-var anchor = document.getElementById('body');
+var anchor = document.getElementById('anchor');
 var lines = [];
 var fitness = [];
 var DISTANCETOP = 0;
+var INCREMENT = 5;
+
+var prompter = function () {
+    INCREMENT = prompt("Increment?", 5);
+    GENE_POOL = (100 / INCREMENT) * (100 / INCREMENT);
+    reset('M');
+}
 
 var purge = function () {
     lines = [];
@@ -16,7 +23,6 @@ var updatePage = function () {
     lines.forEach(function (item) {
         // Put on page
         anchor.appendChild(item);
-        //window.setTimeout(append(item), 0);
     });
 }
 
@@ -25,22 +31,22 @@ function divide(pool) {
     if (lines != []) purge();
     var i = 0;
 
+    var measure = "%";
     var styles = "margin-top: " + DISTANCETOP + "%; " +
-        "width: " + INCREMENT + "%; " +
-        "height:" + INCREMENT + "%; ";
+        "width: " + INCREMENT + measure + "; " +
+        "height: " + INCREMENT + measure + ";";
 
     pool.forEach(function (rawColor) {
         var color = "rgb(" + rawColor.join(",") + ")";
-        var g = document.createElement('div');
+        var div = document.createElement('div');
         // Needed for purge()
-        g.id = "DeleteMe";
-        g.style = styles + "background-color: " + color + ";" +
+        div.id = "DeleteMe";
+        div.style = styles + " background-color: " + color + "; " +
             "color: " + color + ";";
 
         // Fittness Attribute & text ID
-        // g.setAttribute('fitness', getFitness(pool[i]));
-        // g.innerHTML = "id: " + 'D' + i.toString();;
-        lines.push(g);
+        // div.innerHTML = "id: " + 'D' + i.toString();;
+        lines.push(div);
         // Increment pool inex
         i++;
     });

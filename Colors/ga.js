@@ -1,19 +1,13 @@
-var TARGET = [119, 190, 119]
-var INCREMENT = 5;
-var GENE_POOL = (100 / INCREMENT) * (100 / INCREMENT);
-var MUT_PROB = 100;
-var GEN_SKIP = 1;
-var GEN = 0;     
-
-var prompter = function() {
-     INCREMENT = prompt("Increment?", 5);
-     reset('M');
-}
+TARGET = [119, 190, 119]
+GENE_POOL = (100 / INCREMENT) * (100 / INCREMENT);
+MUT_PROB = 100;
+GEN_SKIP = 1;
+GEN = 0;
 
 var generateGenome = function () {
     var prettyColor = true;
 
-    // Uses index.js color function
+    // Uses index.js color functions
     if (prettyColor) {
         return getRandomColor();
     }
@@ -25,20 +19,19 @@ var generateGenome = function () {
 
 var getGenePool = function (genome, instructions) {
     var pool = [];
-
-    // Copies Genome into pool
+    // Copies base Genome into pool
     if (instructions == 'C') {
         for (var i = 0; i < GENE_POOL; i++) {
             pool[i] = genome;
         }
     }
-    // Mutates into pool
-    if (instructions == 'M') {
+    // Mutates base Genome into pool
+    else if (instructions == 'M') {
         for (var i = 0; i < GENE_POOL; i++) {
             pool[i] = doMutation(genome);
         }
     }
-
+    // This will render the pool
     divide(pool);
     return pool;
 };
@@ -75,7 +68,6 @@ var getFitness = function (genome) {
     //if (fitness == 0) alert("IT WORKED OMG");
     return fitness;
 }
-
 var getFittest = function (pool) {
     var fittestIndex = 10000;
     var fittest = 10000;
@@ -87,7 +79,6 @@ var getFittest = function (pool) {
     }
     return pool[fittestIndex];
 }
-
 var evolve = function () {
     var genome = generateGenome();
     var pool = getGenePool(genome, 'M');
@@ -122,11 +113,10 @@ function doubleGen(choice) {
         // console.log("GEN: " + GEN);
         GEN++;
     }
-    // Working
     console.log("GEN: " + GEN + " Fittest(" + getFitness(fittest) + ")= " + fittest.toString());
 }
-
 function showColor() {
+    // function copies TARGET into one full page creature
     purge();
     var d = document.createElement('div');
     var color = "rgb(" + TARGET.join(",") + ")";

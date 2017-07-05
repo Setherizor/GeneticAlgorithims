@@ -6,7 +6,6 @@ var hexToRgb = function (hex) {
     genome[2] = parseInt(result[3], 16);
     return genome
 }
-
 var getRandomColor = function () {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -15,11 +14,10 @@ var getRandomColor = function () {
     }
     return hexToRgb(color);
 }
-
 var truelyRandomColor = function () {
     var genome = [];
     for (var i = 0; i < 3; i++) {
         genome[i] = Math.random() * 256 | 0;
     }
-    return genome; //genome.join(",");;
+    return genome;
 }
