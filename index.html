@@ -6,47 +6,18 @@ https://coolors.co/fdc5f5-f7aef8-b388eb-8093f1-72ddf7
 -->
 
 <head>
-    <title>Genetic Playground</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/f51d027fb674bba15df8fbe8451d7d23" type="image/x-icon">
+  <title>Genetic Playground</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/f51d027fb674bba15df8fbe8451d7d23" type="image/x-icon">
 </head>
 
 <body>
-    <div id="Anchor" class="container"></div>
-    <script>
-        var anchor = document.getElementById("Anchor");
-        var options = [
-            "Strings",
-            "Colors",
-            "Framework",
-            "Home"
-        ];
-        for (var i = 0; i < options.length; i++) {
-            var currOption = options[i];
-            var curr = document.createElement("div");
-            curr.innerHTML = "<h1><a id=" + currOption +
-                " href=./" + currOption + "/" + currOption + /*".html" +*/ ">" +
-                "<button class='btn draw-border'>" + currOption + "</button></a></h1>";
-            curr.className = "child";
-            if (i == 0) {
-                curr.style.backgroundColor = "#B388EB";
-            } else if (i == 1) {
-                curr.style.backgroundColor = "#8093F1";
-            } else if (i == 2) {
-                curr.style.backgroundColor = "#72DDF7";
-            } else if (i == 3) {
-                curr.style.backgroundColor = "#FDC5F5";
-            }
-            anchor.appendChild(curr);
-        }
-    </script>
+  <div id="Anchor" class="container"></div>
+  <script src="index.js"></script>
+  </script>
 </body>
-
-<!-- Uncomment for home button on the main page.
-<script src="homeButton.js"></script>
--->
 
 </html>
