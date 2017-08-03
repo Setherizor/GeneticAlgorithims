@@ -20,16 +20,14 @@ const doMutation = function (genome, target, mutationProbability) {
 }
 
 const getFittest = function (pool, target) {
-  var fittestIndex = 0
-  var fittest = 0
-  for (var i = 0; i < pool.length; ++i) {
-    var currFitness = getFitness(pool[i], target)
-    if (currFitness > fittest) {
-      fittest = currFitness
-      fittestIndex = i
-    }
-  }
-  return pool[fittestIndex]
+  // b - a means sort from low to high, reverse to reverse
+  const sortByFitness = (a, b) => { return b.f - a.f }
+
+  var fitnesses = pool.map((item, index) => {
+    return { 'f': getFitness(item, TARGET), 'index': index }
+  }).sort(sortByFitness)
+
+  return pool[fitnesses[0].index]
 }
 
 const getFitness = function (genome, target) {
@@ -40,7 +38,7 @@ const getFitness = function (genome, target) {
 
 const putOnPage = function (topDown, genome, numGens, target) {
   const container = document.getElementById('fittesteach')
-  const innerStuff = (t) => `<p>${numGens}(${getFitness(genome, t)}):${genome}</p>`
+  const innerStuff = (t) => `<p>${numGens}(${getFitness(genome, t)}): ${genome}</p>`
 
   if (topDown) {
     container.innerHTML += innerStuff(target)

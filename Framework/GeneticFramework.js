@@ -1,3 +1,8 @@
+/**
+ * Not updated as of 8-2-17
+ * Added better functions and some ES6 Magic ;)
+ */
+
 var TARGET = ""; // Here is a target Genome
 var GEN = 0;
 var GENE_POOL = 50;
