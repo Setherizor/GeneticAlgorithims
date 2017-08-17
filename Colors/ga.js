@@ -4,19 +4,17 @@ var MUT_PROB = 100
 var GEN_SKIP = 1
 var GEN = 0
 
-var generateGenome = function () {
+const generateGenome = () => {
   // true = pretty colors, false = truely random
   var prettyColor = true
   return prettyColor ? getRandomColor() : truelyRandomColor()
 }
 
-var getGenePool = function (genome, instructions) {
-  var pool = []
+const getGenePool = (genome, instructions) => {
+  var pool = new Array(GENE_POOL)
   // Copies base Genome into pool
   if (instructions === 'C') {
-    for (var i = 0; i < GENE_POOL; i++) {
-      pool[i] = genome
-    }
+    pool.fill(genome)
   }
   // Mutates base Genome into pool
   else if (instructions === 'M') {
@@ -29,7 +27,7 @@ var getGenePool = function (genome, instructions) {
   return pool
 }
 
-var doMutation = function (genome) {
+const doMutation = (genome) => {
   const canMutate = () => Math.floor(Math.random() * 101) < +MUT_PROB
   const randNumber = () => Math.floor(Math.random() * 256)
   const notTarget = x => i => x !== TARGET[i]
@@ -37,36 +35,36 @@ var doMutation = function (genome) {
 
   // For genome parts, ask if mut probability allows mutation,
   // Then if it is already correct, then get random number
-  return genome.map(function (num, index) {
+  return genome.map((num, index) => {
     return canMutate() ? targetLock(num, index) : num
   })
 }
 
-var getFitness = function (genome) {
+const getFitness = (genome) => {
   // Lower Fitness is best
-  return genome.reduce(function (sum, element, index) {
+  return genome.reduce((sum, element, index) => {
     return sum += Math.abs(element - TARGET[index])
   }, 0)
 }
 
-var getFittest = function (pool) {
+const getFittest =  (pool) => {
   const sortByFitness = (a, b) => { return a.f - b.f }
 
-  var fitnesses = pool.map((item, index) => {
+  const fitnesses = pool.map((item, index) => {
     return { 'f': getFitness(item), 'index': index }
   }).sort(sortByFitness)
 
   return pool[fitnesses[0].index]
 }
 
-var evolve = function () {
-  var genome = generateGenome()
+const evolve = function () {
+  const genome = generateGenome()
   var pool = getGenePool(genome, 'M')
   var fittest = getFittest(pool)
 
   while (getFitness(fittest) !== 0) {
-    var pool = getGenePool(fittest, 'M')
-    var fittest = getFittest(pool)
+    pool = getGenePool(fittest, 'M')
+    fittest = getFittest(pool)
   }
 
   console.log(`GEN: ${GEN} Fittest= ${fittest.toString()}`)
@@ -75,7 +73,7 @@ var evolve = function () {
 
 // This UI code below allows us to step through individual generations with
 // the button and load the page with a population
-var reset = function (choice) {
+const reset = (choice) => {
   purge()
   GEN = 1
   genome = generateGenome()
@@ -84,7 +82,7 @@ var reset = function (choice) {
 }
 
 reset('M')
-function doubleGen (choice) {
+const doubleGen = (choice) => {
   for (var i = 0; i < GEN_SKIP; i++) {
     pool = getGenePool(fittest, choice)
     fittest = getFittest(pool)
@@ -92,7 +90,7 @@ function doubleGen (choice) {
   }
   console.log(`GEN: ${GEN} Fittest(${getFitness(fittest)})= ${fittest.toString()}`)
 }
-function showColor () {
+const showColor = () => {
   // function copies TARGET into one full page creature
   purge()
   var d = document.createElement('div')

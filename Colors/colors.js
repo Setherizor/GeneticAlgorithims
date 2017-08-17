@@ -1,4 +1,4 @@
-var hexToRgb = function (hex) {
+const hexToRgb = (hex) => {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   var genome = []
   genome[0] = parseInt(result[1], 16)
@@ -6,7 +6,7 @@ var hexToRgb = function (hex) {
   genome[2] = parseInt(result[3], 16)
   return genome
 }
-var getRandomColor = function () {
+const getRandomColor = () => {
   const letters = '0123456789ABCDEF'
   var color = '#'
   for (var i = 0; i < 6; i++) {
@@ -14,7 +14,7 @@ var getRandomColor = function () {
   }
   return hexToRgb(color)
 }
-var truelyRandomColor = function () {
+const truelyRandomColor = () => {
   var genome = []
   for (var i = 0; i < 3; i++) {
     genome[i] = Math.random() * 256 | 0
