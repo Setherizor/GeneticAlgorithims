@@ -1,5 +1,5 @@
 var TARGET = [119, 190, 119]
-var GENE_POOL = (100 / INCREMENT) * (100 / INCREMENT)
+var GENE_POOL = (100 / window.INCREMENT) * (100 / window.INCREMENT)
 var MUT_PROB = 100
 var GEN_SKIP = 1
 var GEN = 0
@@ -18,7 +18,7 @@ const getGenePool = (genome, instructions) => {
   }
   // Mutates base Genome into pool
   else if (instructions === 'M') {
-    for (var i = 0; i < GENE_POOL; i++) {
+    for (let i = 0; i < GENE_POOL; i++) {
       pool[i] = doMutation(genome)
     }
   }
@@ -28,7 +28,7 @@ const getGenePool = (genome, instructions) => {
 }
 
 const doMutation = (genome) => {
-  const canMutate = () => Math.floor(Math.random() * 101) < +MUT_PROB
+  const canMutate = () => Math.floor(Math.random() * 101) < MUT_PROB
   const randNumber = () => Math.floor(Math.random() * 256)
   const notTarget = x => i => x !== TARGET[i]
   const targetLock = (x, i) => notTarget(x)(i) ? randNumber() : x
@@ -47,7 +47,7 @@ const getFitness = (genome) => {
   }, 0)
 }
 
-const getFittest =  (pool) => {
+const getFittest = (pool) => {
   const sortByFitness = (a, b) => { return a.f - b.f }
 
   const fitnesses = pool.map((item, index) => {
@@ -95,12 +95,9 @@ const showColor = () => {
   purge()
   var d = document.createElement('div')
   var color = `rgb(${TARGET.join(',')})`
-  var styles = `margin-top: 0px;
-                width: 100%;
-                height: 100%; `
+  var styles = `margin-top: 0px; width: 100%; height: 100%; `
 
-  styles += `background-color: ${color}; 
-             color: ${color};`
+  styles += `background-color: ${color}; color: ${color};`
 
   // Needed for purge()
   d.id = 'DeleteMe'

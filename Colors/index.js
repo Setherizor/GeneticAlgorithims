@@ -4,13 +4,13 @@ var lines = []
 var fitness = []
 var INCREMENT = 5
 
-var prompter = () => {
+const prompter = () => {
   INCREMENT = prompt('Increment?', 5)
-  GENE_POOL = (100 / INCREMENT) * (100 / INCREMENT)
+  window.GENE_POOL = (100 / INCREMENT) * (100 / INCREMENT)
   reset('M')
 }
 
-var purge = () => {
+const purge = () => {
   lines = []
   do {
     var myElem = document.getElementById('DeleteMe')
