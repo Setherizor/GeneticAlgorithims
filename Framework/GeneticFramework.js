@@ -136,7 +136,7 @@ const reset = () => {
  * TODO: FINISH FUNCTION
  * This is most likely where you will program output code
  */
-function doGen () {
+function doGen() {
   for (var i = 0; i < GEN_SKIP; i += 1) {
     pool = getGenePool(fittest)
     fittest = getFittest(pool)

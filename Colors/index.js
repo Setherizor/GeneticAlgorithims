@@ -21,7 +21,7 @@ const purge = () => {
 // Put on page
 const updatePage = (x) => x.forEach((item) => anchor.appendChild(item))
 
-function divide (pool) {
+function divide(pool) {
   // purge already printed squares
   if (lines !== []) purge()
   const styles = `margin-top: ${DISTANCETOP}%; width: ${INCREMENT}%; height: ${INCREMENT}%;`
