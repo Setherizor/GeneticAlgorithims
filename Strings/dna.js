@@ -1,8 +1,5 @@
-// Genetic Algorithm, Evolving Strings
-// Adapted from The Nature of Code
-// Daniel Shiffman
 
-// A class to describe the creature's DNA
+// A class to describe the creature's DNA (Color)
 function newChar() {
   let c = floor(random(63, 122));
   if (c === 63) c = 32;
