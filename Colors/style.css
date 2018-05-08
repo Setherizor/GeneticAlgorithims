@@ -1,39 +1,25 @@
+html,
 body {
-    height: 100vh;
-    width: 96.5vw;
-    padding: 0;
-    margin: 0;
-    top: 20px;
+    width: 100%;
     overflow-x: hidden;
-}
-
-#anchor {
-    height: 100%;
-    width: 100%;
-    padding: 0;
     margin: 0;
-    top: 20px;
-}
-
-div {
-    float: left;
-}
-
-.button-holder {
-    height: 6%;
-    width: 100%;
-    padding: 0 0 0 0;
-    margin: 0;
-    border: 0;
+    text-align: center;
+    font-family: "Courier";
+    font-size: 26px;
 }
 
 button {
-    color: white;
-    background-color: #8093F1;
-    height: 100%;
-    top: 2px;
-    width: 18.5%;
-    padding: 0 0 0 0;
+    width: 210px;
+    height: 44px;
     margin: 0;
-    border: 0;
+    padding: 0;
+    transform: translate(0, -2.5px);
+    font-size: 26px;
+}
+
+input[type=color] {
+    width: 130px;
+    height: 28px;
+    margin: 0;
+    padding: 7px;
 }

@@ -1,0 +1,23 @@
+/* html,
+body {
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  background-color: #72DDF7;
+  margin: 1%;
+}
+
+input {
+  width: 5%;
+  min-width: 20px;
+} */
+
+.stats, .all, .best {
+  font-family: "Courier";
+}
+
+.best {
+  font-size: 48;
+}
+
+.stats {
+  font-size: 24;
+}
