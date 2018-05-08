@@ -23,16 +23,10 @@ class DNA {
 
   // Fitness function (returns floating point % of "correct" characters)
   calcFitness(target) {
-    function colorDiff(a, b) {
-      return sqrt(b.reduce((sum, element, index) => {
-        return sum += sq((a[index] - element))
-      }, 0))
-    }
+    let colorDiff = (a, b) => sqrt(b.reduce((sum, element, index) => sum += sq((a[index] - element)), 0))
     let d = colorDiff(target, this.genes)
     this.fitness = map(d, 0, 442, 1, 0)
   }
-
-  
 
   // Crossover
   crossover(partner) {
@@ -40,7 +34,8 @@ class DNA {
     let child = new DNA(this.genes.length)
     // Half from one, half from the other
     for (let i = 0; i < this.genes.length; i++)
-      child.genes[i] = (this.genes[i] + partner.genes[i]) / 2
+      child.genes[i] = random(1, 100) < 50 ? this.genes[i] : partner.genes[i]
+    //(this.genes[i] + partner.genes[i]) / 2
     return child
   }
 

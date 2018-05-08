@@ -36,7 +36,7 @@ class Population {
     // Based on fitness, each member will get added to the mating pool a certain number of times
     // a higher fitness = more entries to mating pool = more likely to be picked as a parent
     // a lower fitness = fewer entries to mating pool = less likely to be picked as a parent
-    this.population.forEach(c => {
+    this.population.forEach((c, idx) => {
       let fitness = map(c.fitness, 0, maxFitness, 0, 1)
       let n = floor(fitness * 100)
       for (let j = 0; j < n; j++)
@@ -65,16 +65,20 @@ class Population {
 
   // Compute the current "most fit" member of the population
   evaluate() {
-    let worldrecord = 0.0
-    let index = 0
-    this.population.forEach((c, idx) => {
-      if (c.fitness > worldrecord) {
-        index = idx
-        worldrecord = c.fitness
-      }
-    })
-    this.best = this.population[index].getPhrase()
-    if (worldrecord === this.perfectScore || this.getAverageFitness() > .80)
+    // let worldrecord = 0.0
+    // let index = 0
+    // this.population.forEach((c, idx) => {
+    //   if (c.fitness > worldrecord) {
+    //     index = idx
+    //     worldrecord = c.fitness
+    //   }
+    // })
+    // this.best = this.population[index].getPhrase()
+
+    // if (worldrecord === this.perfectScore) {
+
+    // }
+    if (this.getAverageFitness() > 1)
       this.finished = true
   }
 

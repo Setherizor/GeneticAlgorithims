@@ -3,12 +3,22 @@ let target
 let popmax
 let mutationRate
 
-const density = 45
-const canvasSize = 600
+const density = 40
+const canvasSize = 700
 const size = canvasSize / density
+let cnv
 
-let stats, firstColor, loopButton, resetButton
+let stats, firstColor, loopButton, resetButton, colorPicker
 let looping = false;
+
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? [
+    parseInt(result[1], 16),
+    parseInt(result[2], 16),
+    parseInt(result[3], 16)
+  ] : null
+}
 
 function toggleLoop() {
   looping = !looping
@@ -29,24 +39,27 @@ function setup() {
   resetButton = createButton('Reset Simulation')
   resetButton.mousePressed(createPopulation)
 
+  colorPicker = createInput('#7e13d6', 'color')
+  colorPicker.input(myInputEvent)
+
   stats = createP("Stats")
-  stats.class("stats")
 
-  firstColor = createP("First Color:")
-  firstColor.class("best")
+  cnv = createCanvas(canvasSize, canvasSize)
+  cnv.parent('body')
 
-  createCanvas(canvasSize, canvasSize)
   smooth()
   noStroke()
   frameRate(10)
 
-  target = [183, 75, 242]
+  target = hexToRgb(colorPicker.value())
   popmax = sq(density)
   mutationRate = 0.006
 
-  document.getElementById("body").style["background-color"] = "rgb("+target.join(',')+")"
-
   createPopulation()
+}
+
+function myInputEvent() {
+  target = hexToRgb(this.value())
 }
 
 function draw() {
@@ -62,14 +75,12 @@ function draw() {
     noLoop()
   }
 
-  firstColor.html("First Color: " + population.population[0].genes)
-
-  let statstext;
-  statstext += "total generations:     " + population.getGenerations() + "<br>"
-  statstext += "average fitness:       " + nf(population.getAverageFitness()) + "<br>"
-  statstext += "total population:      " + popmax + "<br>"
-  statstext += "mutation rate:         " + floor(mutationRate * 100) + "%"
-  stats.html(statstext)
+  let statsText = ""
+  statsText += "total generations:     " + population.getGenerations() + "<br>"
+  statsText += "average fitness:       " + nf(population.getAverageFitness()) + "<br>"
+  statsText += "total population:      " + popmax + "<br>"
+  statsText += "mutation rate:         " + floor(mutationRate * 100) + "%"
+  stats.html(statsText)
 
   drawPopulation()
 }
@@ -79,7 +90,6 @@ function drawPopulation() {
   let disBetween = adj * 2
   let x = -adj
   let y = adj
-  // Draw Squares
   var i = 0
   var j = 0
   population.population.forEach(s => {
