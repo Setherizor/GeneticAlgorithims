@@ -43,7 +43,7 @@ function draw() {
   population.evaluate()
   // If we found the target phrase, stop
   if (population.isFinished()) {
-    println(millis() / 1000.0)
+    console.log(millis() / 1000.0)
     noLoop()
   }
   displayInfo()

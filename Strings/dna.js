@@ -44,8 +44,8 @@ class DNA {
 
   // Based on a mutation probability, picks a new random character
   mutate(mutationRate) {
-    for (let i = 0; i < this.genes.length; i++) 
-      if (random(1) < mutationRate) 
+    for (let i = 0; i < this.genes.length; i++)
+      if (random(1) < mutationRate)
         this.genes[i] = newChar()
   }
 }
